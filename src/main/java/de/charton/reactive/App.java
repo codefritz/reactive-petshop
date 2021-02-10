@@ -1,6 +1,6 @@
 package de.charton.reactive;
 
-import static de.charton.reactive.PetShop.TOPPIC;
+import static de.charton.reactive.PetShop.TOPPING;
 
 import reactor.core.publisher.Mono;
 
@@ -25,10 +25,10 @@ public class App
 
         Object food = catFood.contextWrite(ctx -> {
             System.out.println("Let me add something from bottom.");
-            return ctx.put(TOPPIC, "cream");
+            return ctx.put(TOPPING, "cream");
         }).block();
 
-        System.out.println(food);
+        System.out.println("Eating: " + food);
         System.out.println("Happy meal.");
 
     }

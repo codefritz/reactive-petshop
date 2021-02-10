@@ -5,7 +5,9 @@ import reactor.util.annotation.NonNull;
 
 public class PetShop {
 
-  public static final String TOPPIC = "topping";
+  static final String TOPPING = "topping";
+
+  private final SurpriseService surpriseService = new SurpriseService();
 
   public Mono<?> buyCatFood(Mono<String> cat) {
     return cat
@@ -14,6 +16,10 @@ public class PetShop {
           return addVitamin(it.length());
           }
         )
+        // TODO add surprise from surprise service
+        .flatMap(it -> {
+          return surpriseService.getSurprise().map(sIt -> sIt + it);
+        })
         .map(it -> {
           System.out.println("use map, because I can.");
           return it;
@@ -22,7 +28,7 @@ public class PetShop {
 
   @NonNull
   private Mono<String> addVitamin(int size) {
-    var toppic = Mono.subscriberContext().map(ctx -> ctx.getOrEmpty(TOPPIC))
+    var toppic = Mono.subscriberContext().map(ctx -> ctx.getOrEmpty(TOPPING))
         .map(it -> {
           System.out.println("add toppic: " + it);
           return it.map(Mono::just).orElse(Mono.empty());
