@@ -5,7 +5,7 @@ import reactor.util.annotation.NonNull;
 
 public class PetShop {
 
-  public static final String TOPPIC = "toppic";
+  public static final String TOPPIC = "topping";
 
 
   public Mono<?> buyCatFood(Mono<String> cat) {
