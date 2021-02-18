@@ -2,12 +2,14 @@ package de.charton.reactive;
 
 import static de.charton.reactive.PetShop.TOPPING;
 
+import lombok.extern.java.Log;
 import reactor.core.publisher.Mono;
 
 /**
  * Hello world!
  *
  */
+@Log
 public class App 
 {
 
