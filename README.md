@@ -1,5 +1,5 @@
 # reactive-petshop
-My cat need some food in a chilled way. 
+Sample project to learn and play with reactive approach.
 
 
 [-] Add case 3rd party service call
